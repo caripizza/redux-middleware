@@ -1,4 +1,7 @@
-import { defaultEquality } from './memo';
+import {
+  defaultEquality,
+  memoize
+} from './memo';
 
 describe('defaultEquality', () => {
   it('can tell if arguments are the same', () => {
@@ -17,5 +20,17 @@ describe('defaultEquality', () => {
     const prevArgs = [1, 2];
     const nextArgs = [NaN, 2, 3];
     expect(defaultEquality(prevArgs, nextArgs)).toEqual(false);
+  });
+});
+
+describe('memoize', () => {
+  it('can tell if two functions are the same', () => {
+    const fn = jest.fn();
+    const memoed = memoize(fn);
+    memoed(1, 2, 3);
+    memoed(1, 2, 3);
+    expect(fn).toHaveBeenCalledTimes(1);
+    memoed(1, 2, 3, 4);
+    expect(fn).toHaveBeenCalledTimes(2);
   });
 });
