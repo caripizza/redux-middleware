@@ -67,3 +67,7 @@ const fetchFacts = count => dispatch => {
 * Show a loading screen while waiting
   * add loading to your redux state
 * Create a `withFetch` higher order component
+
+## Deploy
+
+* Deploy your app to netlify
