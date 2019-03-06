@@ -1,9 +1,11 @@
 {
-  "name": "redux-words",
+  "name": "redux-middleware",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
     "test": "jest --verbose",
     "test:watch": "npm run test -- --watch",
     "start": "webpack-dev-server --hot --mode development --devtool eval-source-map",
@@ -11,12 +13,11 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(css)$": "identity-obj-proxy",
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js"
+      "\\.(css)$": "identity-obj-proxy"
     }
   },
   "keywords": [],
-  "author": "",
+  "author": "Cari Palazzolo",
   "license": "ISC",
   "dependencies": {
     "normalize.css": "^8.0.1",
