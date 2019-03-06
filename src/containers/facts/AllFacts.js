@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getFacts, isLoading } from '../../selectors/ron';
 import { fetchFacts } from '../../actions/ron';
 import Facts from '../../components/facts/Facts';
+import preloader from '../../assets/preloader.gif';
 
 class AllFacts extends PureComponent {
   static propTypes = {
@@ -19,7 +20,15 @@ class AllFacts extends PureComponent {
   render() {
     return (
       < >
-        {this.props.loading ? <h1>Loading...</h1> : <Facts {...this.props}/>}
+        {
+          this.props.loading ? 
+            <h1 style={{ fontStyle: 'italic', color: 'red' }}>
+              Loading...
+              <br/>
+              <img src={preloader}/>
+            </h1> 
+            : <Facts {...this.props}/>
+        }
       </>
     );
   }
